@@ -95,6 +95,7 @@ public class SettingsService {
     private static final String KEY_LDAP_SEARCH_FILTER = "LdapSearchFilter";
     private static final String KEY_LDAP_AUTO_SHADOWING = "LdapAutoShadowing";
     private static final String KEY_GETTING_STARTED_ENABLED = "GettingStartedEnabled";
+    private static final String KEY_EXTERNAL_SERVICES_ENABLED = "ExternalServicesEnabled";
     private static final String KEY_SETTINGS_CHANGED = "SettingsChanged";
     private static final String KEY_LAST_SCANNED = "LastScanned";
     private static final String KEY_ORGANIZE_BY_FOLDER_STRUCTURE = "OrganizeByFolderStructure";
@@ -178,6 +179,7 @@ public class SettingsService {
     private static final String DEFAULT_LDAP_SEARCH_FILTER = "(sAMAccountName={0})";
     private static final boolean DEFAULT_LDAP_AUTO_SHADOWING = false;
     private static final boolean DEFAULT_GETTING_STARTED_ENABLED = true;
+    private static final boolean DEFAULT_EXTERNAL_SERVICES_ENABLED = false;
     private static final long DEFAULT_SETTINGS_CHANGED = 0L;
     private static final boolean DEFAULT_ORGANIZE_BY_FOLDER_STRUCTURE = true;
     private static final boolean DEFAULT_SORT_ALBUMS_BY_YEAR = true;
@@ -719,6 +721,14 @@ public class SettingsService {
 
     public void setGettingStartedEnabled(boolean isGettingStartedEnabled) {
         setBoolean(KEY_GETTING_STARTED_ENABLED, isGettingStartedEnabled);
+    }
+
+    public boolean isExternalServicesEnabled() {
+        return getBoolean(KEY_EXTERNAL_SERVICES_ENABLED, DEFAULT_EXTERNAL_SERVICES_ENABLED);
+    }
+
+    public void setExternalServicesEnabled(boolean isExternalServicesEnabled) {
+        setBoolean(KEY_EXTERNAL_SERVICES_ENABLED, isExternalServicesEnabled);
     }
 
     public long getSettingsChanged() {

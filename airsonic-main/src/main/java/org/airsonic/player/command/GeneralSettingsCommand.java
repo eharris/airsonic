@@ -38,6 +38,7 @@ public class GeneralSettingsCommand {
     private String shortcuts;
     private boolean sortAlbumsByYear;
     private boolean gettingStartedEnabled;
+    private boolean externalServicesEnabled;
     private String welcomeTitle;
     private String welcomeSubtitle;
     private String welcomeMessage;
@@ -186,4 +187,11 @@ public class GeneralSettingsCommand {
         this.gettingStartedEnabled = gettingStartedEnabled;
     }
 
+    public boolean isExternalServicesEnabled() {
+        return externalServicesEnabled;
+    }
+
+    public void setExternalServicesEnabled(boolean externalServicesEnabled) {
+        this.externalServicesEnabled = externalServicesEnabled;
+    }
 }
