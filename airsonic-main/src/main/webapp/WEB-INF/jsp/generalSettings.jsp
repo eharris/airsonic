@@ -122,15 +122,6 @@
                 <label for="gettingStartedEnabled"><fmt:message key="generalsettings.showgettingstarted"/></label>
             </td>
         </tr>
-        <tr>
-            <td>
-            </td>
-            <td>
-                <form:checkbox path="externalServicesEnabled" id="externalServicesEnabled"/>
-                  <%--<label for="externalServicesEnabled"><fmt:message key="generalsettings.showexternalservices"/></label>--%>
-                  <label for="externalServicesEnabled">Enable external services (Chromecast support, lastfm integration, …)</label>
-            </td>
-        </tr>
 
         <tr><td colspan="2">&nbsp;</td></tr>
 
