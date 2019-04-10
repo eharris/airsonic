@@ -185,4 +185,5 @@ public class GeneralSettingsCommand {
     public void setGettingStartedEnabled(boolean gettingStartedEnabled) {
         this.gettingStartedEnabled = gettingStartedEnabled;
     }
+
 }
