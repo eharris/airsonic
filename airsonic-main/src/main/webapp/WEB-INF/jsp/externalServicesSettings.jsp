@@ -1,6 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
-<%--@elvariable id="model" type="org.airsonic.player.command.AdvancedSettingsCommand"--%>
-
 <html>
 <head>
     <%@ include file="head.jsp" %>
@@ -17,7 +15,7 @@
 <form method="post" action="externalServicesSettings">
     <sec:csrfInput />
 		<div>
-			<input type="checkbox" name="chromecast" ${model.chromeCastEnabled? "checked": ""}/>
+			<input type="checkbox" name="chromecast" ${chromecast? "checked": ""}/>
 			<label for="chromeCastEnabled">Enable <a href="https://en.wikipedia.org/wiki/Chromecast">ChromeCast</a> integration</label>
 		</div>
 
@@ -26,7 +24,7 @@
     </p>
 
 		<div>
-			<input type="checkbox" name="lastfm" ${model.LastfmEnabled? "checked": ""}/>
+			<input type="checkbox" name="lastfm" ${lastfm? "checked": ""}/>
 			<label for="LastfmEnabled">Enable <a href="https://www.last.fm/">LastFM</a> integration</label>
 		</div>
 
@@ -34,7 +32,7 @@
 		This is used to get details about artists and to suggest covers when missing.
     </p>
 		<div>
-			<input type="checkbox" name="chartlyrics" ${model.chartlyricsEnabled? "checked": ""}/>
+			<input type="checkbox" name="chartlyrics" ${chartlyrics? "checked": ""}/>
 			<label for="chartlyricsEnabled">Enable <a href="http://www.chartlyrics.com/">chartlyrics</a> integration</label>
 		</div>
 

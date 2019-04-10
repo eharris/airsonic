@@ -729,12 +729,12 @@ public class SettingsService {
         setBoolean(KEY_GETTING_STARTED_ENABLED, isGettingStartedEnabled);
     }
 
-    public boolean isExternalServicesChromeCastEnabled() {
+    public boolean isExternalServicesChromecastEnabled() {
         return getBoolean(KEY_EXTERNAL_SERVICES_CHROMECAST_ENABLED, DEFAULT_EXTERNAL_SERVICES_CHROMECAST_ENABLED);
     }
 
-    public void setExternalServicesChromeCastEnabled(boolean externalServicesChromeCastEnabled) {
-        setBoolean(KEY_EXTERNAL_SERVICES_CHROMECAST_ENABLED, externalServicesChromeCastEnabled);
+    public void setExternalServicesChromecastEnabled(boolean externalServicesChromecastEnabled) {
+        setBoolean(KEY_EXTERNAL_SERVICES_CHROMECAST_ENABLED, externalServicesChromecastEnabled);
     }
 
     public boolean isExternalServicesLastfmEnabled() {
@@ -746,7 +746,7 @@ public class SettingsService {
     }
 
     public boolean isExternalServicesChartlyricsEnabled() {
-        return getBoolean(KEY_EXTERNAL_SERVICES_LASTFM_ENABLED, DEFAULT_EXTERNAL_SERVICES_CHARTLYRICS_ENABLED);
+        return getBoolean(KEY_EXTERNAL_SERVICES_CHARTLYRICS_ENABLED, DEFAULT_EXTERNAL_SERVICES_CHARTLYRICS_ENABLED);
     }
 
     public void setExternalServicesChartlyricsEnabled(boolean externalServicesChartlyricsEnabled) {

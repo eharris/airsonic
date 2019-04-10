@@ -859,7 +859,7 @@
     <div id="dialog-select-playlist-list"></div>
 </div>
 
-<c:if test="${model.externalServicesEnabled}">
+<c:if test="${model.chromecastEnabled}">
 <script type="text/javascript">
     window['__onGCastApiAvailable'] = function(isAvailable) {
         if (isAvailable) {

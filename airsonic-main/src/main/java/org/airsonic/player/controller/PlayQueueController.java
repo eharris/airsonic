@@ -68,7 +68,7 @@ public class PlayQueueController {
         map.put("partyMode", userSettings.isPartyModeEnabled());
         map.put("notify", userSettings.isSongNotificationEnabled());
         map.put("autoHide", userSettings.isAutoHidePlayQueue());
-        map.put("chromeCastEnabled", settingsService.isExternalServicesChromeCastEnabled());
+        map.put("chromecastEnabled", settingsService.isExternalServicesChromecastEnabled());
         return new ModelAndView("playQueue","model",map);
     }
 }

@@ -29,9 +29,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 
-import java.util.HashMap;
-import java.util.Map;
-
 @Controller
 @RequestMapping("/externalServicesSettings")
 public class ExternalServicesSettingsController {
@@ -42,12 +39,10 @@ public class ExternalServicesSettingsController {
     @RequestMapping(method = RequestMethod.GET)
     public String doGet(Model model) throws Exception {
 
-        Map<String, Object> map = new HashMap<String, Object>();
-        map.put("chromecast", settingsService.isExternalServicesChromeCastEnabled());
-        map.put("lastfm", settingsService.isExternalServicesLastfmEnabled());
-        map.put("chartlyrics", settingsService.isExternalServicesChartlyricsEnabled());
+        model.addAttribute("chromecast", settingsService.isExternalServicesChromecastEnabled());
+        model.addAttribute("lastfm", settingsService.isExternalServicesLastfmEnabled());
+        model.addAttribute("chartlyrics", settingsService.isExternalServicesChartlyricsEnabled());
 
-        model.addAttribute("model", map);
         return "externalServicesSettings";
     }
 
@@ -58,15 +53,14 @@ public class ExternalServicesSettingsController {
         return "redirect:externalServicesSettings.view";
     }
 
-    private String handleParameters(HttpServletRequest request, RedirectAttributes redirectAttributes) {
+    private void handleParameters(HttpServletRequest request, RedirectAttributes redirectAttributes) {
         boolean chromecast = ServletRequestUtils.getBooleanParameter(request, "chromecast", false);
         boolean lastfm = ServletRequestUtils.getBooleanParameter(request, "lastfm", false);
         boolean chartlyrics = ServletRequestUtils.getBooleanParameter(request, "chartlyrics", false);
 
-        settingsService.setExternalServicesChromeCastEnabled(chromecast);
+        settingsService.setExternalServicesChromecastEnabled(chromecast);
         settingsService.setExternalServicesLastfmEnabled(lastfm);
         settingsService.setExternalServicesChartlyricsEnabled(chartlyrics);
         settingsService.save();
-        return null;
     }
 }
