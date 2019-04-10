@@ -18,7 +18,6 @@
  */
 package org.airsonic.player.controller;
 
-import org.airsonic.player.command.ExternalServicesSettingsCommand;
 import org.airsonic.player.service.SettingsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
