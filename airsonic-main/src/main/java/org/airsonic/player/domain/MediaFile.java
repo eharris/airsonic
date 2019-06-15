@@ -216,10 +216,10 @@ public class MediaFile {
 
     public String getName() {
         if (isFile()) {
-            return title != null ? title : FilenameUtils.getBaseName(path);
+            return title != null ? title : FilenameUtils.getBaseName(path).replace('_', ' ');
         }
 
-        return FilenameUtils.getName(path);
+        return FilenameUtils.getName(path).replace('_', ' ');
     }
 
     public Integer getDiscNumber() {
