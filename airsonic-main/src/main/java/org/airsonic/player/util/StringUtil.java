@@ -41,7 +41,6 @@ import java.util.regex.Pattern;
  */
 public final class StringUtil {
 
-    public static final String ENCODING_LATIN = "ISO-8859-1";
     public static final String ENCODING_UTF8 = "UTF-8";
     private static final DateFormat ISO_8601_DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
 
@@ -61,6 +60,7 @@ public final class StringUtil {
             {"ogx", "application/ogg"},
             {"aac", "audio/mp4"},
             {"m4a", "audio/mp4"},
+            {"m4b", "audio/mp4"},
             {"flac", "audio/flac"},
             {"wav", "audio/x-wav"},
             {"wma", "audio/x-ms-wma"},
@@ -201,25 +201,25 @@ public final class StringUtil {
         // More than 1 TB?
         if (byteCount >= 1024L * 1024 * 1024 * 1024) {
             NumberFormat teraByteFormat = new DecimalFormat("0.00 TB", new DecimalFormatSymbols(locale));
-            return teraByteFormat.format( ((double) byteCount ) / ((double) 1024 * 1024 * 1024 * 1024));
+            return teraByteFormat.format( byteCount / ((double) 1024 * 1024 * 1024 * 1024));
         }
      
         // More than 1 GB?
         if (byteCount >= 1024L * 1024 * 1024) {
             NumberFormat gigaByteFormat = new DecimalFormat("0.00 GB", new DecimalFormatSymbols(locale));
-            return gigaByteFormat.format((double) byteCount / ((double) 1024 * 1024 * 1024));
+            return gigaByteFormat.format(byteCount / ((double) 1024 * 1024 * 1024));
         }
 
         // More than 1 MB?
         if (byteCount >= 1024L * 1024) {
             NumberFormat megaByteFormat = new DecimalFormat("0.0 MB", new DecimalFormatSymbols(locale));
-            return megaByteFormat.format((double) byteCount / ((double) 1024 * 1024));
+            return megaByteFormat.format(byteCount / ((double) 1024 * 1024));
         }
 
         // More than 1 KB?
         if (byteCount >= 1024L) {
             NumberFormat kiloByteFormat = new DecimalFormat("0 KB", new DecimalFormatSymbols(locale));
-            return kiloByteFormat.format((double) byteCount / ((double) 1024));
+            return kiloByteFormat.format((double) byteCount / 1024);
         }
 
         return byteCount + " B";
@@ -286,7 +286,7 @@ public final class StringUtil {
             List<String> result = new ArrayList<String>();
             for (String line = reader.readLine(); line != null; line = reader.readLine()) {
                 line = line.trim();
-                if (!line.startsWith("#") && line.length() > 0) {
+                if (!line.startsWith("#") && !line.isEmpty()) {
                     result.add(line);
                 }
             }

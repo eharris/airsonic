@@ -3,6 +3,123 @@
 # airsonic/airsonic
 # -->
 
+## v10.4.0 - 13 Jul 2019
+
+Fixes:
+- /stream When transcoding, always use chunked transfers and report that ranges
+  are not supported. When not transcoding, support returning ranges but only if
+requested.
+- /stream Remove the option to never set Content-Length. This workaround is
+  obsolete with correct handling of ranges when requested.
+- Use spaces instead of coma in systemd lists
+- Don't use ProtectHome by default in the systemd unit
+- Show cover art not displaying on chromecast
+- Fix downloads with embedded covers
+- Fix a crash when transcoding a track without artist/album
+- Fix the video player that was broken in cf1f86f
+- Fix 3 minor errors in jsp files
+    - Add a missing `$` in dlnaSettings
+    - Add a missing taglib import in homePage.jsp
+    - Add a missing `=` in playQueue.jsp's css
+- Fix layout and alignment issues in current master branch
+- Work around play queue not going to the next song automatically
+
+Changes:
+- Add m4b detection
+- Cleanup unused libraries
+- Better handling of ID3v2.4
+- /stream Refactor
+- /stream Dont use RanegOutputStream when entire range is requested
+- /stream Omit unnecessary null check on ranges
+- Declare the usage of HTML5 in the doctype
+- Remove the embedded copy of jaxrpc
+- Fix a possible stacktrace on RandomPlayQueue
+- Add contrib/library\_autoupdater.sh (#1096)
+- Remove the deprecated getAlphabetialAlbums method
+- Remove the ghetto REST flash-based video player
+- Add an `alt` attribute to images, to increase accessibility
+- Use SVG for the icons for the default\_light theme
+- Disallow deleting your own user or removing admin role
+- SearchService refactoring
+- Play internet radios in MediaElement (fix #408)
+- Add internet radio source cache
+- Hide play queue actions while playing internet radios
+- Limit the amount of data we parse from remote internet radio playlists
+- Show an error is an internet radio has no sources to load
+- Do not try to load radio playlists in the browser when clicking on a radio
+- Follow HTTP redirects when loading internet radio playlists
+
+Translation Updates:
+- Character encoding changes
+- Strip the \<p>…\</p> markup in translation
+- Add Weblate config
+
+Security:
+- Cookie is now marked httpOnly
+- Jackson updates
+
+
+## v10.3.1 - 21 May 2019
+
+Fixes:
+  * Fix utils.js naming issue
+
+Security:
+  * CVE-2019-12086 - bump jackson version
+
+## v10.3.0 - 20 May 2019
+
+Fixes:
+  * Fix a javascript null-deref occuring when localstorage isn't available/supported by the browser
+  * Fix StringIndexOutOfBounds errors thrown by DWR/YUI
+  * Fix a small resource leak
+  * Fix #611 Add support for Java 9 and greater
+  * Fix typo in anonymous user name (#663)
+
+
+Changes:
+  * Maven Dependency Updates
+  * HSQL: Checkpoint/defrag/shutdown optimizations
+  * HSQL: Log tweaks
+  * Remove momentjs, pngfix
+  * Codebase modernization
+  * Systemd unit hardening
+  * Remove the external fonts usage
+  * Update mediaelement from 4.1.1 to 4.2.9
+  * Remove script.aculo.us dependency
+  * Add description and viewport meta tags
+  * Javascript cleanup/optimizations
+  * Remove Google+ relics
+  * Remove jquery-contextmenu since it's not used anywhere
+  * Remove webfx stuff, since they're apparently not used
+  * Remove WAP-related stuff
+  * Do not show stack trace for client-side connection errors
+  * Show more informative messages while streaming
+  * Replace latin encoding with utf-8
+  * Don't autocomplete the password field
+  * Clicking on the logo now redirects to home instead of about
+  * Remove mentions of subsonic premium
+  * Add a permission check for the podcast folder
+  * Replace the double-mustache anti-pattern
+  * Remove the /db page
+  * Bump jQuery/jquery-ui to the latest versions
+  * Replace the flash player with medialement.js for the shared media
+  * Add system properties for persisting the 'remember me' key
+  * Replace the usage of prototypejs with jquery in changeCoverArt.jsp
+  * Add the required keyword to some forms
+  * Update docker base image to alpine 3.9
+
+
+Security:
+  * CVE-2019-10908 Generate new passwords in a secure way
+  * Fix a xss and clean up some js
+  * CVE-2019-10907 Use a random key to "encrypt" the remember-me cookie's value
+  * Use https for external links
+  * Fix a bunch of dom-based xss
+  * Add a noopener and noreferrer to external urls
+  * Avoid logging sensitive URL parameters in the Subsonic API
+  * Fix various minor issues found by LGTM
+
 ## v10.2.1 - 18 Feb 2019
 
 Security:
